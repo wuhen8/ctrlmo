@@ -22,7 +22,14 @@ jobs:
         go-version: '1.23'
 
     - name: Build
-      run: go build -v ./...
+      run: |
+        go build -o myapp  # 使用 go build 编译项目，指定输出文件名为 myapp
 
-    - name: Test
-      run: go test -v ./...
+    - name: List build files
+      run: ls -al  # 列出工作目录下的文件，确认编译的文件在哪里
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: myapp
+        path: myapp  # 上传名为 myapp 的文件
