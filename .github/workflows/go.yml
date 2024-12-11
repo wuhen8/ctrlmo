@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: |
-        go build -o myapp  # 使用 go build 编译项目，指定输出文件名为 myapp
+        GOARCH=amd64 go build -o myapp  # 使用 go build 编译项目，指定输出文件名为 myapp
 
     - name: List build files
       run: ls -al  # 列出工作目录下的文件，确认编译的文件在哪里
